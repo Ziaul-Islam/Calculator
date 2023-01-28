@@ -1,2 +1,2 @@
 # Calculator
-This is a calculator use to perform arithmatic operation using API
+This is a calculator use to perform arithmetic operation using API

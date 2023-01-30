@@ -2,10 +2,12 @@
 
 
 const math = require('./math.js');
+const cors = require("cors");
 const express = require('express');
 const app = express();
 
 
+app.use(cors());
 app.get('/Testing', (req, res) => {
     res.send('Calculator running ok')
 });
@@ -26,7 +28,7 @@ app.get('/sum', (req, res) => {
 app.get('/equals', (req, res) => {
 
     const input = req.query;
-    //console.log(req.query);
+    console.log(req.query);
     const num = input['num'];
     const map = math.extract(num);
 
@@ -35,7 +37,20 @@ app.get('/equals', (req, res) => {
     //console.log(num);
 
     //res.send("Sum : " + JSON.stringify(map));
-    res.send("SUM : "+math.equal(map));
+
+    //Operation
+    const sum = math.equal(map);
+    console.log(sum);
+    if (sum === 'Incorrect Input'){
+        res.sendStatus(400);
+    }
+    else{
+        //res.sendStatus(200);
+        //console.log(sum);
+        //console.log('Before send : '+sum);
+        res.send({'result' : sum });
+    }
+    
 })
 
 app.listen(3000, () => {

@@ -41,7 +41,7 @@ app.get('/equals', (req, res) => {
     //Operation
     const sum = math.equal(map);
     console.log(sum);
-    if (sum === 'Incorrect Input'){
+    if (sum === 'error'){
         res.sendStatus(400);
     }
     else{

@@ -29,7 +29,8 @@ function equal(map) {
         '+': function (x, y) { return x + y },
         '-': function (x, y) { return x - y },
         '*': function (x, y) { return x * y },
-        '/': function (x, y) { return (y != 0 ? x/y : 'error')}
+        '/': function (x, y) { return x / y }
+        //'/': function (x, y) { return (y != 0 ? x/y : 'error')}
     };
 
     var sum = 0;
@@ -44,6 +45,8 @@ function equal(map) {
             else {
                 //console.log(sum,' ',num[i]);
                 sum = math_it_up[op[i - 1]](sum, parseFloat(num[i]));
+                //return if found division error
+                if (sum === Infinity) return 'error'
                 //console.log(sum,' ',num[i]);
             }
         }
@@ -52,7 +55,7 @@ function equal(map) {
     }
     else {
         //console.log('I am here incorrect input');
-        return 'Incorrect Input';
+        return 'error';
     }
 
 }

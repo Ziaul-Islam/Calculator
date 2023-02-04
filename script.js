@@ -1,13 +1,15 @@
-// This function clear all the values
 function clearScreen() {
-    document.getElementById("result").value = "";
+    document.getElementById("result").innerText = "";
 }
 
 // This function display values
 function display(value) {
-    document.getElementById("result").value += value;
+    document.getElementById("result").innerText += value;
 }
 
+function backspace(){
+    document.getElementById("result").innerText = document.getElementById("result").innerText.slice(0, -1)
+}
 const userAction = async (url) => {
 
     try{
@@ -30,18 +32,18 @@ const calculate = async () => {
 
     
     //document.getElementById("result").value = "";
-    var param = document.getElementById("result").value;
+    var param = document.getElementById("result").innerText;
     console.log(param);
-    var query = param.replace('+','%2B');
-    const url = 'http://localhost:3000/equals?num='+query;
+    var query = param.replace(/\+/g,'%2B');
+    const url = 'https://us-central1-calculatorapp-d415f.cloudfunctions.net/app/equals?num='+query;
     //console.log(url);
     try{
         const result = await userAction(url);
         //console.log('Result in cal '+ JSON.stringify(result));
-        document.getElementById("result").value = result['result'];
+        document.getElementById("result").innerText = result['result'];
     }
     catch (err) {
-        document.getElementById("result").value = 'Invalid Input';
+        document.getElementById("result").innerText = 'Invalid Input';
         console.log(err.message);
     }
 

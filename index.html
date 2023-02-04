@@ -1,63 +1,38 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
- 
-
+<html lang="en">
 <head>
-      
-    <meta charset="utf-8">
-      <title>API Calculator </title>
-      
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
- 
-
 <body>
-     
-    <table class="calculator">
-          <tr>
-                <td colspan="3"> <input class="display-box" type="text" id="result" disabled /> </td>
-             
-                
-            <!-- clearScreen() function clears all the values -->
-                <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
-              
-        </tr>
-          <tr>
-                
-            <!-- display() function displays the value of clicked button -->
-                <td> <input type="button" value="1" onclick="display('1')" /> </td>
-                <td> <input type="button" value="2" onclick="display('2')" /> </td>
-                <td> <input type="button" value="3" onclick="display('3')" /> </td>
-                <td> <input type="button" value="/" onclick="display('/')" /> </td>
-              
-        </tr>
-          <tr>
-                <td> <input type="button" value="4" onclick="display('4')" /> </td>
-                <td> <input type="button" value="5" onclick="display('5')" /> </td>
-                <td> <input type="button" value="6" onclick="display('6')" /> </td>
-                <td> <input type="button" value="-" onclick="display('-')" /> </td>
-              </tr>
-          <tr>
-                <td> <input type="button" value="7" onclick="display('7')" /> </td>
-                <td> <input type="button" value="8" onclick="display('8')" /> </td>
-                <td> <input type="button" value="9" onclick="display('9')" /> </td>
-                <td> <input type="button" value="+" onclick="display('+')" /> </td>
-              </tr>
-          <tr>
-                <td> <input type="button" value="." onclick="display('.')" /> </td>
-                <td> <input type="button" value="0" onclick="display('0')" /> </td>
-             
-                
-            <!-- calculate() function evaluates the mathematical expression -->
-                <td> <input type="button" value="=" onclick="calculate()" id="btn" /> </td>
-                <td> <input type="button" value="*" onclick="display('*')" /> </td>
-              
-        </tr>
-    </table>
-     
-    <script type="text/javascript" src="script.js"></script>
-     
+    <section>
+        <div class="container">
+            <div id="result"></div>
+            <div class="buttons">
+                <div class="button" type="button" value="C" onclick="clearScreen()" id="btn">C</div>
+                <div class="button" type="button" value="1" onclick="display('/')">/</div>
+                <div class="button" type="button" value="*" onclick="display('*')">*</div>
+                <div class="button" type="button" value="<" onclick="backspace()">&larr;</div>
+                <div class="button" type="button" value="7" onclick="display('7')">7</div>
+                <div class="button" type="button" value="8" onclick="display('8')">8</div>
+                <div class="button" type="button" value="9" onclick="display('9')">9</div>
+                <div class="button" type="button" value="-" onclick="display('-')">-</div>
+                <div class="button" type="button" value="4" onclick="display('4')">4</div>
+                <div class="button" type="button" value="5" onclick="display('5')">5</div>
+                <div class="button" type="button" value="6" onclick="display('6')">6</div>
+                <div class="button" type="button" value="+" onclick="display('+')">+</div>
+                <div class="button" type="button" value="1" onclick="display('1')">1</div>
+                <div class="button" type="button" value="2" onclick="display('2')">2</div>
+                <div class="button" type="button" value="3" onclick="display('3')">3</div>
+                <div class="button" type="button" value="." onclick="display('.')">.</div>
+            </div>
+            <div class="mark">
+                <div class="button" type="button" value="0" onclick="display('0')">0</div>
+                <div class="button" value="=" onclick="calculate()" id="btn" >=</div>
+            </div> 
+        </div>
+    </section>
+    <script src="script.js"></script>
 </body>
- 
-
 </html>
